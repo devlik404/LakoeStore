@@ -29,7 +29,7 @@ export function UseOrderSucces(email: string, name: string, waybill: string) {
       waybill_id: `${waybill}`,
       // address: `${address}`,
     },
-    groups: ['98537036938479128'], // This is where you need to categorize which group it should go for email automation trigger
+    groups: ['103544797412722393'], // This is where you need to categorize which group it should go for email automation trigger
     status: 'active', // possible statuses: active, unsubscribed, unconfirmed, bounced or junk.
   };
 

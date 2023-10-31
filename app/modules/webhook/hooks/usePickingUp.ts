@@ -35,7 +35,7 @@ export function pickingUp(
     fields: {
       // This is where you can make custom fields variable for email template display
       name: `${name}`,
-      waybill: `${waybill}`,
+      waybill_id: `${waybill}`,
       invoicenumber: `${invoiceNumber}`,
       couriername: `${courierName}`,
       productname: `${productName}`,
@@ -44,7 +44,7 @@ export function pickingUp(
 
       // address: `${address}`,
     },
-    groups: ['100917108885423441'], // This is where you need to categorize which group it should go for email automation trigger
+    groups: ['103525484955960373'], // This is where you need to categorize which group it should go for email automation trigger
     status: 'active', // possible statuses: active, unsubscribed, unconfirmed, bounced or junk.
   };
 

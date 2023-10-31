@@ -30,7 +30,7 @@ export function SellerAutomation(email: string, name: string, price: number) {
       price: `${price}`,
       // address: `${address}`,
     },
-    groups: ['99715023976269699'], // This is where you need to categorize which group it should go for email automation trigger
+    groups: ['103544806836274804'], // This is where you need to categorize which group it should go for email automation trigger
     status: 'active', // possible statuses: active, unsubscribed, unconfirmed, bounced or junk.
   };
 
