@@ -310,6 +310,7 @@ CREATE TABLE `invoices` (
     `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     UNIQUE INDEX `invoices_id_key`(`id`),
+    UNIQUE INDEX `invoices_courierId_key`(`courierId`),
     INDEX `invoices_cartId_idx`(`cartId`),
     INDEX `invoices_courierId_idx`(`courierId`),
     INDEX `invoices_userId_idx`(`userId`),
