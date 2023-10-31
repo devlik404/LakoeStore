@@ -55,6 +55,9 @@ export async function action({ request }: ActionArgs) {
     const id = formData.get('id') as string;
     const orderId = formData.get('orderId') as string;
 
+    console.log('update order id', orderId);
+    console.log('update courier id', id);
+
     await db.courier.update({
       where: {
         id,

@@ -381,10 +381,7 @@ export default function CardCenceled(props: any) {
                             h={'52px'}
                             display={'inline'}
                             borderRadius={'md'}
-                            src={
-                              data.cart?.cartItems[0]?.product?.attachments[0]
-                                ?.url
-                            }
+                            src={`${data.cart?.cartItems[0]?.product?.attachments[0].url}`}
                           />
                           <Text
                             id="fm500"

@@ -86,7 +86,7 @@ export default function NewOrderHooks() {
       const baseUrl = 'https://api.biteship.com';
       const endpoint = '/v1/orders';
       const apiKey =
-        'biteship_test.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUmlub1B1amEtTEFLT0UiLCJ1c2VySWQiOiI2NTA4MDJiOTA5ZWRjNTViMThjNGQxNDMiLCJpYXQiOjE2OTUxOTkyOTZ9.yNL64MzGSESlk-zln4iv0-yz9Nv3osEmt2_sVqOJ2xI'; //hapus dan gunakan process.env.blablabla sebelum publish (credentials bukan konsumsi public)
+        'biteship_test.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQklURVNISVBfQVBJX0tFWSIsInVzZXJJZCI6IjY0ZjUyNjIyMzljOTljM2QyODQwOTAzYyIsImlhdCI6MTY5ODcyNTA1MH0.U_wAo-g4nDcAg9G0g9YAmmlI7ENCVM9ESV8WPKLljAk';
 
       const dataforBiteShip = {
         shipper_contact_name: 'TESTERKU #01',
@@ -113,8 +113,8 @@ export default function NewOrderHooks() {
           latitude: -6.2253114,
           longitude: 106.7993735,
         },
-        courier_company: 'grab',
-        courier_type: 'instant',
+        courier_company: 'jne',
+        courier_type: 'reg',
         courier_insurance: 100000,
         delivery_type: 'later',
         delivery_date: '2024-10-10',
@@ -166,14 +166,13 @@ export default function NewOrderHooks() {
       //     latitude: selectedProps?.receiverLatitude,
       //     longitude: selectedProps?.receiverLongitude,
       //   },
-      //   courier_company: selectedProps?.courier.courierName,
-
-      //   courier_type: selectedProps?.courier.courierType,
-      //   courier_insurance: selectedProps?.courier.courierInsurance,
-      //   delivery_type: selectedProps?.courier.courierType,
-      //   delivery_date: selectedProps?.courier.deliveryDate,
-      //   delivery_time: selectedProps?.courier.deliveryTime,
-      //   order_note: selectedProps?.courier.description,
+      //   courier_company: 'jne',
+      //   courier_type: 'reg',
+      //   courier_insurance: 100000,
+      //   delivery_type: 'later',
+      //   delivery_date: '2024-10-10',
+      //   delivery_time: '14:00 - 16:00',
+      //   order_note: 'Fragile items, handle with care',
       //   metadata: {},
       //   items: [
       //     {
@@ -232,8 +231,8 @@ export default function NewOrderHooks() {
           throw error;
         }
       }
+
       updateDbCourierId();
-      console.log('check id-nya :', responseDataBITESHIP);
       alert(
         'Kami sedang mencarikan kurir untuk penjemputan paket anda, Mohon Menunggu'
       );

@@ -188,6 +188,25 @@ export async function action({ request }: ActionArgs) {
     });
   }
 
+  if (actionType === 'updateDbCourierId') {
+    const id = formData.get('id') as string;
+    const orderId = formData.get('orderId') as string;
+
+    console.log('update order id', orderId);
+    console.log('update courier id', id);
+
+    await db.courier.update({
+      where: {
+        id,
+      },
+      data: {
+        orderId,
+      },
+    });
+
+    return json({ data: 'data added' });
+  }
+
   if (request.method.toLowerCase() === 'patch') {
     const formData = await request.formData();
 
