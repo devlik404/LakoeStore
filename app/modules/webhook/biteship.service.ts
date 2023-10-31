@@ -1,11 +1,11 @@
-// import {
-//   SellerAutomation,
-//   UpdateInvoiceStatusInDelivered,
-// } from '~/hooks/sellerAutomation';
-// import {
-//   UpdateInvoiceStatusInTransit,
-//   UseOrderSucces,
-// } from '~/hooks/useOrderSucces';
+import {
+  SellerAutomation,
+  UpdateInvoiceStatusInDelivered,
+} from './hooks/sellerAutomation';
+import {
+  UpdateInvoiceStatusInTransit,
+  UseOrderSucces,
+} from './hooks/useOrderSuccess';
 
 import { db } from '~/libs/prisma/db.server';
 import { pickingUp, updateInvoiceStatus } from './hooks/usePickingUp';
@@ -52,21 +52,21 @@ export async function getEmail(payload: any) {
 // const data = useLoaderData<typeof loader>();
 
 export async function Biteship(payload: any) {
-  // const dataInvoice = await getEmail(payload);
+  const dataInvoice = await getEmail(payload);
 
-  // if (!dataInvoice) {
-  //   // Handle the case where dataInvoice is null (no matching record)
-  //   console.log(
-  //     'No matching record found for waybill: ' + payload.courier_waybill_id
-  //   );
-  // }
+  if (!dataInvoice) {
+    // Handle the case where dataInvoice is null (no matching record)
+    console.log(
+      'No matching record found for waybill: ' + payload.courier_waybill_id
+    );
+  }
 
-  // const email = dataInvoice?.user?.email as string;
-  // const name = dataInvoice?.user?.name as string;
-  // const waybill = dataInvoice?.waybill as string;
-  // const receiverEmail = dataInvoice?.receiverEmail as string;
-  // const receiverName = dataInvoice?.receiverName as string;
-  // const price = dataInvoice?.price as number;
+  const email = dataInvoice?.user?.email as string;
+  const name = dataInvoice?.user?.name as string;
+  const waybill = dataInvoice?.waybill as string;
+  const receiverEmail = dataInvoice?.receiverEmail as string;
+  const receiverName = dataInvoice?.receiverName as string;
+  const price = dataInvoice?.price as number;
 
   // Allocated
   try {
@@ -190,16 +190,16 @@ export async function Biteship(payload: any) {
     // Courier on the way to recipient's location
     if (payload.status === 'dropping_off') {
       // droppingOff(email, name, waybill);
-      // updateInvoiceStatusInTransit(dataInvoice);
-      // console.log("this is payload status: " + payload.status);
+      UpdateInvoiceStatusInTransit(dataInvoice);
+      console.log('this is payload status: ' + payload.status);
     }
 
     // Item successfully recieved
     if (payload.status === 'delivered') {
-      // UseOrderSucces(receiverEmail, receiverName, waybill);
-      // SellerAutomation(email, name, price);
-      // UpdateInvoiceStatusInTransit(dataInvoice);
-      // UpdateInvoiceStatusInDelivered(dataInvoice);
+      UseOrderSucces(receiverEmail, receiverName, waybill);
+      SellerAutomation(email, name, price);
+      UpdateInvoiceStatusInTransit(dataInvoice);
+      UpdateInvoiceStatusInDelivered(dataInvoice);
       console.log('this is payload status: ' + payload.status);
     }
 
