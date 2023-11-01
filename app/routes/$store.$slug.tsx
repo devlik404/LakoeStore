@@ -40,7 +40,7 @@ import {
   createCheckout,
   getCheckoutDetail,
 } from '../modules/checkout/checkout.service';
-import { handleClick } from './productUnpaid4';
+import { handleClick } from './productUnpaid';
 
 export async function loader({ params }: ActionArgs) {
   const data = params;
@@ -191,7 +191,7 @@ export const action = async ({ request }: ActionArgs) => {
       };
 
       try {
-        handleClick(telp, name, email);
+        handleClick(name, email, totalPriceUnique);
         const create = await createCheckout(data);
         return create;
       } catch (error) {

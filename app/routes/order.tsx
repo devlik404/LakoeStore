@@ -88,6 +88,8 @@ export async function loader({ request, context, params }: DataFunctionArgs) {
 export async function action({ request }: ActionArgs) {
   const requestIP = request.headers.get('x-forwarded-for') as string;
 
+  console.log('requestIP', requestIP);
+
   if (isMootaIP(requestIP)) {
     if (request.method === 'POST') {
       try {
