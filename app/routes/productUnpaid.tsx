@@ -41,8 +41,8 @@ export function handleClick(
   const params: CreateOrUpdateParams = {
     email: newEmail,
     fields: {
-      name: `${name}`,
-      subtotal: `${totalPriceUnique}`,
+      namausertaguhan: `${name}`,
+      jumlahusertagihan: `${totalPriceUnique}`,
     },
     groups: ['103555236240558047'],
     status: 'active',
