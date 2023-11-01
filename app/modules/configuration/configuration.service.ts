@@ -12,9 +12,6 @@ export default async function createLocation(storeId: any, data: any) {
         store: {
           connect: { id: storeId },
         },
-        profile: {
-          connect: { id: '1' },
-        },
         name: data.name,
         address: data.address,
         latitude: data.latitude,
@@ -44,9 +41,6 @@ export async function updateLocation(storeId: any, id: any, data: any) {
       data: {
         store: {
           connect: { id: storeId },
-        },
-        profile: {
-          connect: { id: '1' },
         },
         name: data.name,
         address: data.address,
